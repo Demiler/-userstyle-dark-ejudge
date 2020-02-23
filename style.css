@@ -143,6 +143,10 @@ p {
     border-radius: 10px;
     background-color: #707070;
 }
+
+::selection {
+    background-color: #c090ce;
+}
 }
 
 @-moz-document domain("earth.ispras.ru") {
@@ -198,11 +202,13 @@ td.b1 {
 }
 
 #HideOptions table {
-	background: #3e3e3e;
-    padding: 3px;
-    border: 1.3px solid #565656;
+	background: #3c3c3c;
+    padding: 3px 6px;
+    /* border: 1.3px solid #565656; */
     color: #d6d6d6;
     border-radius: 7px;
+    box-shadow: inset 0 0 7px 2px #00000087;
+    margin-top: 8px;
 }
 
 td#probNavTaskArea {
@@ -214,16 +220,19 @@ div.server_status_error, div.server_status_alarm, div.server_status_off, div.ser
 	box-shadow: none;
 	text-shadow: none;
 	color: #EEE;
+    border-top: none;
+    border-radius: 5px 5px 0 0;
 }
 
-div.server_status_error { background-color: var(--server-error-color); }
-div.server_status_on { background-color: var(--server-running-color); }
-div.server_status_off { background-color: var(--server-stopped-color); }
-div.server_status_alarm { background-color: var(--server-alarm-color)}
+div.server_status_error { background-color: var(--server-error-color);   }
+div.server_status_on    { background-color: var(--server-running-color); }
+div.server_status_off   { background-color: var(--server-stopped-color); }
+div.server_status_alarm { background-color: var(--server-alarm-color);   }
 
 #container {
     border-radius: 4px;
-	box-shadow: 2px 2px 3px 0px #383838;
+	/*box-shadow: 2px 2px 3px 0px #383838;*/
+    box-shadow: none;
 	background: none;
 	background-color: #2A2A2A;
 	color: var(--main-text-color);
@@ -237,35 +246,6 @@ div.server_status_alarm { background-color: var(--server-alarm-color)}
 
 td#probNavTaskArea { padding-top: 0; }
 
-/*
-#main-menu, #main-menu ul li.current, div.contest_actions_item {
-	background: none !important;
-	box-shadow: none;
-	border: none;
-	text-shadow: none;
-	color: #e6e6e6;
-	padding: 0;
-}
-
-#main-menu ul li a, #main-menu ul li.active, #main-menu ul li.current {
-	background: none;
-	text-shadow: none;
-	background-color: #212121;
-	color: #e6e6e6;
-	padding: 2px 10px;
-	margin-left: 5px;
-	border-radius: 4px;
-}
-
-#main-menu ul li a:hover:hover {
-	background-color: #6d6d6d;
-}
-
-#main-menu ul li.active, #main-menu ul li.current {
-	background-color: #6161BC !important;
-}
-*/
-
 #probNavTaskArea pre {
 	background-color: #202020;
 	color: white;
@@ -278,8 +258,10 @@ pre {
 }
 }
 
-@-moz-document regexp(".*earth\\. ispras\\.ru/.+") {
-/*.nBottomNavList {display:none;}
+@-moz-document regexp(".*earth\\.ispras\\.ru/.+") {
+/* old tasks list style */
+/*
+.nBottomNavList {display:none;}
 .nBottomNavList li a, .nTopNavList li a, A.tab:visited {
 	text-shadow: none;
 	color: #EEE !important;
@@ -326,7 +308,8 @@ div.nProbBad:hover {
 .nTopNavList li {
 	margin-top: 18px !important;
 	padding: 0;
-}*/
+}
+*/
 }
 
 @-moz-document regexp(".*earth\\.ispras\\.ru/.+") {
@@ -349,6 +332,7 @@ div.user_action_item {
 }
 
 @-moz-document regexp(".*earth\\.ispras\\.ru/.+") {
+/* info tab */
 .info-table-line {
 	box-shadow: none;
 	border: 2px solid #717171 !important;
@@ -376,38 +360,7 @@ h2 {
 }
 
 @-moz-document regexp(".*earth\\.ispras\\.ru/.+") {
-/*form > table.b0 > tbody tr {
-	margin: 2px 3px;	
-}
-
-form > table.b0 > tbody tr:nth-child(2) td:last-child input {
-	opacity: 0;
-}
-
-form > table.b0 > tbody tr:nth-child(2) td:last-child {
-	background-color: #4f4f4f;
-	border-radius: 3px;
-}
-
-form > table.b0 > tbody tr:nth-child(2) td:last-child::before {
-	content: "Choose file";
-	position: absolute;
-	left: 15%;
-	color: #d7d7d7;
-	margin-top: 1px;
-}
-
-form > table.b0 > tbody tr:nth-child(2) td:last-child:hover, input[type="submit"]:hover {
-	background-color: #537099;
-}*/
-
-input[type="submit"] {
-	background-color: #4f4f4f;
-	border: none;
-	border-radius: 3px;
-	color: #d7d7d7;
-}
-
+/* tests result style */
 .table {
 	box-shadow: none;
 }
@@ -427,50 +380,14 @@ input[type="submit"] {
 	border-color: #4c4c4c;
 }
 
-.table tr[bgcolor="#ddffdd"] td{
+.table tr[bgcolor="#ddffdd"] td {
 	background-color: #337533;
 	
 }
-
-input[type="file"]::-webkit-file-upload-button {
-    /*visibility: hidden;*/
-    background-color: #4c4c4c;
-    color: #d7d7d7;
-    border: none;
-    border-radius: 3px;
-    outline: none;
-}
-
-input[type="file"]::-webkit-file-upload-button:hover {
-    background-color: #616161;
-}
-
-input[type="file"]::-webkit-file-upload-button:active {
-    background-color: #334675;
-}
-
-/*input[type="file"]::before {
-    content: 'Choose file';
-    display: inline-block;
-    background: #4c4c4c;
-    border-radius: 3px;
-    padding: 4px 6px;
-    outline: none;
-    -webkit-user-select: none;
-    cursor: pointer;
-    font-size: 10pt;
-}
-
-input[type="file"]:hover::before {
-    background-color: #616161;
-}
-
-input[type="file"]:active::before {
-    background: #337533;
-}*/
 }
 
 @-moz-document regexp(".*earth\\.ispras\\.ru/.+") {
+/* code hightlight */
 :not(pre) > code[class*="language-"], pre[class*="language-"] {
 	background-color: #242424;
 }
@@ -498,6 +415,7 @@ code[class*="language-"] {
 }
 
 @-moz-document regexp(".*earth\\.ispras\\.ru/.+") {
+/* race status */
 table.standings {
 	box-shadow: none;
 }
@@ -555,7 +473,8 @@ td.cell_attr_pr:hover::after{
 }
 
 @-moz-document regexp(".*earth\\.ispras\\.ru/.+") {
-A.tab {
+/* results tab */
+a.tab {
 	color: #eee;
 }
 
@@ -565,6 +484,7 @@ A.tab {
 }
 
 @-moz-document regexp(".*earth\\.ispras\\.ru/.+") {
+/* task list */
 html,body {    
   height:100%;
   margin: 0;
@@ -900,6 +820,7 @@ ul.nTopNavList::-webkit-scrollbar-thumb {
 }
 
 @-moz-document regexp("https:\\/\\/earth\\.ispras\\.ru\\/cgi-bin\\/new-client\\?contest_id=\\d*&locale_id=\\d*") {
+/* login page */
 #container { box-shadow: none; margin: 0; width: 0; }
 #l12-col { width: 0; }
 
@@ -995,32 +916,6 @@ input[type="submit"] {
 }
 }
 
-@-moz-document regexp(".*earth\\.ispras\\.ru/.+disabled") {
-#main-menu {
-	width: auto;
-}
-
-#main-menu ul {
-	width: inherit;
-}
-
-#main-menu ul li a, #main-menu ul li.active, div.contest_actions_item {
-	font-size: 1vw;
-}
-
-#container, #l12, #l13, div.user_actions, div.white_empty_block, div.contest_actions, .nTopNavList a, .nTopNavList a, .nBottomNavList a, table.probNav, .message-table {
-    width: 100%;
-}
-
-#main-cont, #container, #main-menu {
-	min-width: 10px;
-}
-
-#footer, p.fixed_width, div#probNavTaskArea, div.user_actions, div.contest_actions {
-	width: 500px;
-}
-}
-
 @-moz-document regexp(".*earth\\.ispras\\.ru/.+") {
 /*@media only screen and (max-width: 600px) {}*/
 @media only screen and (max-width: 1000px) {
@@ -1065,7 +960,7 @@ input[type="submit"] {
 		display: none;
 	}
     
-    #main-menu li:nth-child(2) {
+    #main-menu li:nth-child(2), #main-menu li.current:nth-child(2) {
         border-left: 0;
         border-radius: 0 0 0 10px;
     }
@@ -1082,30 +977,14 @@ input[type="submit"] {
 		padding: 5px 5px;
 		content: url(https://image.flaticon.com/icons/svg/1004/1004140.svg);
         width: 20px;
-		height: calc(width * 1.75);
 		display: block;
 		position: absolute;
 	}
 }
 }
 
-@-moz-document regexp(".*earth\\.ispras\\.ru/.+=94") {
-/* since one tab has no tabs on the left, it's would be nice to fix marging */
-#container {
-    margin-left: 0;
-    width: 100%;
-}
-
-#main-cont {
-    display: flex;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-}
-
 @-moz-document regexp(".*earth\\.ispras\\.ru/.+") {
-/* text area and other stuff */
+/* text area, buttons and other */
 input, textarea {
     background-color: #4c4c4c;
     border: none;
@@ -1119,5 +998,94 @@ textarea {
     min-width: 400px;
     min-height: 300px;
     max-width: 80vw;
+}
+
+/* submit button */
+input[type="submit"] {
+	background-color: #4f4f4f;
+	border: none;
+	border-radius: 3px;
+	color: #d7d7d7;
+    padding: 2px 8px;
+}
+
+input[type="submit"]:hover {
+	background-color: #616161;
+}
+
+input[type="file"] {
+    background: none;
+}
+
+/* firefox does not support this :(
+input[type="file"]::-webkit-file-upload-button {
+    /*visibility: hidden;/
+    background-color: #4c4c4c;
+    color: #d7d7d7;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+    background-color: #616161;
+}
+
+input[type="file"]::-webkit-file-upload-button:active {
+    background-color: #334675;
+}*/
+
+/*#probNavTaskArea-ins > h3 + form tr:nth-of-type(2) > :last-child::before { */
+
+input[type="file"]::before {
+    content: "Choose File";
+    font-size: 10pt;
+    color: #d7d7d7;
+    background-color: #4c4c4c;
+    border-radius: 3px;
+    padding: 2px 8px;
+    position: absolute;
+    box-shadow: 0 0 0 3px #2A2A2A;
+    pointer-events: none;
+}
+
+input[type="file"]:hover::before {
+    background-color: #616161;
+}
+
+input[type="file"]:active::before {
+        background-color: #334675;
+}
+
+select {
+    background-color: #4c4c4c;
+    border: none;
+    border-radius: 3px;
+    color: #d7d7d7;
+    height: 20px;
+    font-size: 12px;
+}
+
+select:hover, select:focus {
+  background-color: #616161;
+}
+
+select:active {
+    border-radius: 3px 3px 0 0;
+}
+}
+
+@-moz-document regexp(".*earth\\.ispras\\.ru/.+=(94|130)") {
+/* since one tab has no tabs on the left, it's would be nice to fix marging */
+#container {
+    margin-left: 0;
+    width: 100%;
+}
+
+#main-cont {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 }
