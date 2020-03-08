@@ -260,7 +260,6 @@ input[type="submit"] {
 }
 
 .user_actions input[type="submit"]:active {
-	box-shadow: inset 2px 2px 2px 2px #85a4d1;
 	background-color: #9FC3F6;
     border-radius: 2px;
 }
@@ -361,6 +360,20 @@ td#probNavTaskArea {
 pre {
 	color: #AAA;
 	background-color: #262626;
+}
+
+/* make footer flatter */
+#l13 {
+    padding-bottom: 0;
+}
+
+#l13 .probNav {
+    margin-bottom: 0;
+}
+
+#footer a, #footer a:visited {
+    color: #65acd0;
+    text-decoration: none;
 }
 }
 
