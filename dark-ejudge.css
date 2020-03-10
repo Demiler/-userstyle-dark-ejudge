@@ -697,9 +697,9 @@ ul.nTopNavList {
 	position: fixed;
 	display: flex;
 	
-	top: 50px;
+	top: 44px;
     left: 0px;
-    bottom: 100px;
+    bottom: 4vh;
     overflow-y: auto;
     overflow-x: hidden;
 	direction: rtl;
@@ -864,12 +864,21 @@ ul.nTopNavList::-webkit-scrollbar {
     display: flex;
     align-items: center;
 }
+
+/* fix single child */
+#main-menu ul li:first-child:last-child {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0;
+    background-color: inherit !important;
+    text-transform: uppercase;
+}
 }
 
 @-moz-document regexp(".*earth\\.ispras\\.ru/.+") {
 /* half screen view */
-@media only screen and (max-width: 1000px) {
-	::root {
+@media only screen and (max-width: 1100px) {
+	:root {
 		--tw: 100%;
 	}
     
@@ -882,8 +891,8 @@ ul.nTopNavList::-webkit-scrollbar {
     
     /* set new width for content */
     #container {
-        width: 80vw;
-        margin-right: 0;
+        width: auto;
+        margin-right: 40px;
     }
 
     /* reset width */
